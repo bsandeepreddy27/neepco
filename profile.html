@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NEEPCO - User Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .profile-card {
+            background-color: white;
+            border-radius: 10px;
+            width: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .profile-card h2 {
+            color: #333;
+        }
+        .profile-card .details {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .profile-card .details p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .nav-bar {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profile.html">Profile</a>
+        <a href="logout.html">Logout</a>
+    </div>
+
+    <!-- Profile Header -->
+    <div class="header">
+        <h1>NEEPCO User Profile</h1>
+    </div>
+
+    <!-- Profile Content -->
+    <div class="container">
+        <div class="profile-card">
+            <h2>Welcome, John Doe</h2>
+            <div class="details">
+                <p><strong>Role:</strong> Procurement Officer</p>
+                <p><strong>Department:</strong> Procurement</p>
+                <p><strong>Email:</strong> john.doe@neepco.in</p>
+                <p><strong>Employee ID:</strong> NEEPCO12345</p>
+                <p><strong>Last Login:</strong> November 10, 2024</p>
+            </div>
+            <button class="button" onclick="location.href='edit-profile.html'">Edit Profile</button>
+        </div>
+    </div>
+
+</body>
+</html>

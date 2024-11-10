@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Purchase Order - NEEPCO </title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="procurement.html">Procurement Management</a>
+            <a href="vendor.html">Vendor Management</a>
+            <a href="payments.html">Payments</a>
+            <a href="reports.html">Reports</a>
+            <a href="compliance.html">Compliance</a>
+            <a href="profile.html">Profile</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Create New Purchase Order</h2>
+
+        <form action="submit_purchase_order.html" method="POST">
+            <label for="order_number">Order Number</label>
+            <input type="text" id="order_number" name="order_number" required>
+
+            <label for="vendor">Vendor</label>
+            <select id="vendor" name="vendor" required>
+                <option value="vendor1">Vendor 1</option>
+                <option value="vendor2">Vendor 2</option>
+                <option value="vendor3">Vendor 3</option>
+            </select>
+
+            <label for="item">Item</label>
+            <input type="text" id="item" name="item" required>
+
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" required>
+
+            <label for="unit_price">Unit Price</label>
+            <input type="number" id="unit_price" name="unit_price" step="0.01" required>
+
+            <label for="total_price">Total Price</label>
+            <input type="number" id="total_price" name="total_price" step="0.01" required readonly>
+
+            <button type="submit">Submit Purchase Order</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2024 NEEPCO | <a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // JavaScript to calculate total price dynamically
+        document.getElementById('quantity').addEventListener('input', updateTotalPrice);
+        document.getElementById('unit_price').addEventListener('input', updateTotalPrice);
+
+        function updateTotalPrice() {
+            var quantity = document.getElementById('quantity').value;
+            var unitPrice = document.getElementById('unit_price').value;
+            var totalPrice = (quantity * unitPrice).toFixed(2);
+            document.getElementById('total_price').value = totalPrice;
+        }
+    </script>
+</body>
+</html>

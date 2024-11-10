@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Payments - NEEPCO </title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="procurement.html">Procurement Management</a>
+            <a href="vendor.html">Vendor Management</a>
+            <a href="payments.html">Payments</a>
+            <a href="reports.html">Reports</a>
+            <a href="compliance.html">Compliance</a>
+            <a href="profile.html">Profile</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Track Payments</h2>
+
+        <section class="payment-filter">
+            <form action="#" method="GET">
+                <label for="payment_status">Payment Status</label>
+                <select id="payment_status" name="payment_status">
+                    <option value="all">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                    <option value="failed">Failed</option>
+                </select>
+
+                <label for="payment_date">Payment Date</label>
+                <input type="date" id="payment_date" name="payment_date">
+
+                <button type="submit">Filter</button>
+            </form>
+        </section>
+
+        <section class="payment-list">
+            <h3>Recent Payments</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Payment ID</th>
+                        <th>Vendor</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Payment Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1001</td>
+                        <td>Vendor 1</td>
+                        <td>$500</td>
+                        <td>Completed</td>
+                        <td>2024-11-01</td>
+                        <td><a href="payment-details.html?payment_id=1001">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>1002</td>
+                        <td>Vendor 2</td>
+                        <td>$750</td>
+                        <td>Pending</td>
+                        <td>2024-11-05</td>
+                        <td><a href="payment-details.html?payment_id=1002">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>Vendor 3</td>
+                        <td>$1200</td>
+                        <td>Completed</td>
+                        <td>2024-11-07</td>
+                        <td><a href="payment-details.html?payment_id=1003">View Details</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 NEEPCO | <a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>

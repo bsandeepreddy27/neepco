@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Information - NEEPCO </title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="procurement.html">Procurement Management</a>
+            <a href="vendor.html">Vendor Management</a>
+            <a href="payments.html">Payments</a>
+            <a href="reports.html">Reports</a>
+            <a href="compliance.html">Compliance</a>
+            <a href="profile.html">Profile</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Vendor Information</h2>
+        
+        <!-- Vendor Info Table -->
+        <section class="vendor-details">
+            <h3>Vendor: <span id="vendor_name">Vendor XYZ</span></h3>
+            <table>
+                <tr>
+                    <th>Business Type</th>
+                    <td id="business_type">Manufacturer</td>
+                </tr>
+                <tr>
+                    <th>Contact Person</th>
+                    <td id="contact_person">John Doe</td>
+                </tr>
+                <tr>
+                    <th>Phone Number</th>
+                    <td id="phone_number">+1 234 567 890</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td id="email">contact@vendorxyz.com</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td id="address">123 Business St, City, Country</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td id="status">Active</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Action Buttons -->
+        <section class="action-buttons">
+            <a href="edit_vendor.html" class="button">Edit Vendor</a>
+            <a href="delete_vendor.html" class="button" onclick="return confirm('Are you sure you want to delete this vendor?');">Delete Vendor</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 NEEPCO | <a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>

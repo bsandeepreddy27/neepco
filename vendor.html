@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Management - NEEPCO </title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">NEEPCO</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="procurement.html">Procurement</a>
+            <a href="vendor.html" class="active">Vendor Management</a>
+            <a href="payments.html">Payments</a>
+            <a href="reports.html">Reports</a>
+            <a href="profile.html">Profile</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Vendor Management</h1>
+        
+        <!-- Search and Filter Section -->
+        <section class="vendor-search">
+            <h2>Search Vendors</h2>
+            <form id="vendorSearchForm">
+                <label for="vendorName">Vendor Name:</label>
+                <input type="text" id="vendorName" name="vendorName" placeholder="Enter vendor name">
+                
+                <label for="vendorType">Vendor Type:</label>
+                <select id="vendorType" name="vendorType">
+                    <option value="all">All</option>
+                    <option value="mse">MSE (Micro and Small Enterprises)</option>
+                    <option value="large">Large Enterprise</option>
+                </select>
+                
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        
+        <!-- Vendor List Section -->
+        <section class="vendor-list">
+            <h2>Vendor Directory</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vendor ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Contact</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample Vendor Rows -->
+                    <tr>
+                        <td>V001</td>
+                        <td>ABC Supplies Ltd.</td>
+                        <td>MSE</td>
+                        <td>contact@abc.com</td>
+                        <td>Approved</td>
+                        <td><a href="vendor-details.html?id=V001">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>V002</td>
+                        <td>XYZ Enterprises</td>
+                        <td>Large Enterprise</td>
+                        <td>info@xyz.com</td>
+                        <td>Pending Approval</td>
+                        <td><a href="vendor-details.html?id=V002">View Details</a></td>
+                    </tr>
+                    <!-- Additional vendor entries would be dynamically populated here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- MSE Vendor Support Section -->
+        <section class="mse-support">
+            <h2>MSE Vendor Engagement</h2>
+            <p>NEEPCO encourages participation from Micro and Small Enterprises (MSEs). Below are resources and support links for MSE vendors:</p>
+            <ul>
+                <li><a href="mse-onboarding.html">MSE Onboarding Guide</a></li>
+                <li><a href="mse-support.html">Support Resources</a></li>
+                <li><a href="contact.html">Contact for Assistance</a></li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2024 NEEPCO Procurement Portal</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

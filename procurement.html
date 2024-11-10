@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurement Management - NEEPCO </title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">NEEPCO</div>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="procurement.html">Procurement Management</a>
+            <a href="vendor.html">Vendor Management</a>
+            <a href="payments.html">Payments</a>
+            <a href="reports.html">Reports</a>
+            <a href="compliance.html">Compliance</a>
+            <a href="profile.html">Profile</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <h1>Procurement Management</h1>
+
+        <!-- Procurement Requests Section -->
+        <section id="current-requests">
+            <h2>Current Procurement Requests</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Vendor</th>
+                        <th>Item Details</th>
+                        <th>Quantity</th>
+                        <th>Urgency Level</th>
+                        <th>Status</th>
+                        <th>Approval Workflow</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>REQ001</td>
+                        <td>Vendor A</td>
+                        <td>50 kW Solar Panels</td>
+                        <td>100 units</td>
+                        <td>High</td>
+                        <td>Pending</td>
+                        <td><button class="status-button">View Workflow</button></td>
+                    </tr>
+                    <tr>
+                        <td>REQ002</td>
+                        <td>Vendor B</td>
+                        <td>HVAC Equipment</td>
+                        <td>25 units</td>
+                        <td>Medium</td>
+                        <td>Approved</td>
+                        <td><button class="status-button">View Workflow</button></td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Create New Request Section -->
+        <section id="create-request">
+            <h2>Create New Procurement Request</h2>
+            <form action="#" method="post">
+                <label for="vendor">Vendor:</label>
+                <input type="text" id="vendor" name="vendor" required>
+
+                <label for="item-details">Item Details:</label>
+                <input type="text" id="item-details" name="item-details" required>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" required>
+
+                <label for="urgency">Urgency Level:</label>
+                <select id="urgency" name="urgency" required>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+
+                <button type="submit" class="submit-button">Submit Request</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 NEEPCO | <a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+</body>
+</html>

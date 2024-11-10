@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Vendor - NEEPCO </title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="procurement.html">Procurement Management</a>
+            <a href="vendor.html">Vendor Management</a>
+            <a href="payments.html">Payments</a>
+            <a href="reports.html">Reports</a>
+            <a href="compliance.html">Compliance</a>
+            <a href="profile.html">Profile</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Edit Vendor Details</h2>
+
+        <!-- Edit Vendor Form -->
+        <form action="update_vendor.php" method="POST">
+            <label for="vendor_name">Vendor Name:</label>
+            <input type="text" id="vendor_name" name="vendor_name" value="Vendor XYZ" required>
+
+            <label for="business_type">Business Type:</label>
+            <input type="text" id="business_type" name="business_type" value="Manufacturer" required>
+
+            <label for="contact_person">Contact Person:</label>
+            <input type="text" id="contact_person" name="contact_person" value="John Doe" required>
+
+            <label for="phone_number">Phone Number:</label>
+            <input type="tel" id="phone_number" name="phone_number" value="+1 234 567 890" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="contact@vendorxyz.com" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required>123 Business St, City, Country</textarea>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="active" selected>Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+
+            <button type="submit">Save Changes</button>
+        </form>
+
+        <section class="action-buttons">
+            <a href="vendor-details.html" class="button">Cancel</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 NEEPCO | <a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>

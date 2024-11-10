@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice & Payment Tracking - NEEPCO </title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">NEEPCO </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="procurement.html">Procurement</a>
+            <a href="vendor.html">Vendor Management</a>
+            <a href="payments.html" class="active">Payments</a>
+            <a href="reports.html">Reports</a>
+            <a href="profile.html">Profile</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Invoice & Payment Tracking</h1>
+        
+        <!-- Pending Payments Section -->
+        <section class="pending-payments">
+            <h2>Pending Payments</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Invoice ID</th>
+                        <th>Vendor</th>
+                        <th>Amount Due</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample Pending Payments Rows -->
+                    <tr>
+                        <td>INV001</td>
+                        <td>ABC Supplies Ltd.</td>
+                        <td>$2,500</td>
+                        <td>2024-11-15</td>
+                        <td>Pending</td>
+                        <td><a href="payment-details.html?id=INV001">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>INV002</td>
+                        <td>XYZ Enterprises</td>
+                        <td>$4,000</td>
+                        <td>2024-11-20</td>
+                        <td>Pending</td>
+                        <td><a href="payment-details.html?id=INV002">View Details</a></td>
+                    </tr>
+                    <!-- Additional pending payment entries would be dynamically populated here -->
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Payment History Section -->
+        <section class="payment-history">
+            <h2>Payment History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Invoice ID</th>
+                        <th>Vendor</th>
+                        <th>Amount Paid</th>
+                        <th>Payment Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample Payment History Rows -->
+                    <tr>
+                        <td>INV098</td>
+                        <td>LMN Tech</td>
+                        <td>$1,200</td>
+                        <td>2024-10-20</td>
+                        <td>Completed</td>
+                        <td><a href="payment-receipt.html?id=INV098">View Receipt</a></td>
+                    </tr>
+                    <tr>
+                        <td>INV099</td>
+                        <td>OPQ Solutions</td>
+                        <td>$3,300</td>
+                        <td>2024-10-25</td>
+                        <td>Completed</td>
+                        <td><a href="payment-receipt.html?id=INV099">View Receipt</a></td>
+                    </tr>
+                    <!-- Additional payment history entries would be dynamically populated here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Payment Initiation Section -->
+        <section class="payment-initiation">
+            <h2>Initiate New Payment</h2>
+            <form id="paymentForm">
+                <label for="invoiceId">Invoice ID:</label>
+                <input type="text" id="invoiceId" name="invoiceId" placeholder="Enter Invoice ID">
+                
+                <label for="vendorName">Vendor Name:</label>
+                <input type="text" id="vendorName" name="vendorName" placeholder="Enter Vendor Name">
+                
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter Amount" step="0.01">
+                
+                <label for="paymentDate">Payment Date:</label>
+                <input type="date" id="paymentDate" name="paymentDate">
+                
+                <button type="submit">Initiate Payment</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2024 NEEPCO Procurement Portal</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
