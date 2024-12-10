@@ -12,12 +12,12 @@ import { doc, getFirestore, setDoc } from "https://www.gstatic.com/firebasejs/9.
 
 // Firebase Configuration Object
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyDfImdWgYRjEiItPckbWzJsYY7Yi6fud14",
+    authDomain: "neepco-p.firebaseapp.com",
+    projectId: "neepco-p",
+    storageBucket: "neepco-p.firebasestorage.app",
+    messagingSenderId: "728646816054",
+    appId: "1:728646816054:web:7ebdad137c19ee9d9b6397"
 };
 
 // Initialize Firebase App
