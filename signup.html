@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - NEEPCO</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
+    <!-- Header Section -->
     <header>
         <div class="logo">NEEPCO</div>
     </header>
+
+    <!-- Main Content Section -->
     <main>
         <h1>Create Your Account</h1>
         <form id="signup-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
 
-            <label for="confirm_password">Confirm Password:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
 
-            <button type="submit">Sign Up</button>
+            <button type="submit" class="button">Sign Up</button>
         </form>
+
         <p>Already have an account? <a href="login.html">Login here</a>.</p>
     </main>
 
@@ -34,7 +48,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js"></script>
 
-    <!-- auth.js -->
+    <!-- Auth.js Script -->
     <script src="js/auth.js"></script>
 </body>
+
 </html>
