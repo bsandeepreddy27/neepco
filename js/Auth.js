@@ -1,25 +1,29 @@
-// Firebase Configuration for Sign Up and Login 
+// Firebase Configuration
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
 import {
     createUserWithEmailAndPassword,
     getAuth,
+    onAuthStateChanged,
     signInWithEmailAndPassword,
+    signOut,
     updateProfile
 } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+import { doc, getFirestore, setDoc } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
 
 // Firebase Configuration Object
 const firebaseConfig = {
-    apiKey: "AIzaSyDfImdWgYRjEiItPckbWzJsYY7Yi6fud14",
-    authDomain: "neepco-p.firebaseapp.com",
-    projectId: "neepco-p",
-    storageBucket: "neepco-p.firebasestorage.app",
-    messagingSenderId: "728646816054",
-    appId: "1:728646816054:web:7ebdad137c19ee9d9b6397"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
 };
 
 // Initialize Firebase App
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 // Sign Up Form Handling
 document.getElementById("signup-form").addEventListener("submit", async (e) => {
@@ -30,6 +34,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirm_password").value;
 
+  // Check if passwords match
   if (password !== confirmPassword) {
     alert("Passwords do not match.");
     return;
@@ -40,8 +45,13 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
     // Update Display Name with the provided username
-    await updateProfile(userCredential.user, {
-      displayName: username
+    await updateProfile(userCredential.user, { displayName: username });
+
+    // Save user data to Firestore
+    await setDoc(doc(db, "users", userCredential.user.uid), {
+      username: username,
+      email: email,
+      createdAt: new Date()
     });
 
     alert("Account created successfully!");
@@ -60,7 +70,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   const password = document.getElementById("password").value;
 
   try {
-    // Sign in with Email and Password using Firebase Authentication
+    // Sign in with Email and Password
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     alert("Login successful!");
 
@@ -72,17 +82,10 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   }
 });
 
-// Firebase Configuration for Authentication State and Logout
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
-
-// Initialize Firebase for Authentication State
-const appAuth = initializeApp(firebaseConfig);
-const authState = getAuth(appAuth);
-
-// Handle User Authentication State
-onAuthStateChanged(authState, (user) => {
+// Firebase Authentication State and Logout Handling
+onAuthStateChanged(auth, (user) => {
   if (user) {
-    // If the user is logged in, hide the login and signup links, show logout link
+    // If the user is logged in, hide login and signup links, show logout link
     document.getElementById("login-link").style.display = "none";
     document.getElementById("signup-link").style.display = "none";
     document.getElementById("logout-link").style.display = "inline";
@@ -96,7 +99,6 @@ onAuthStateChanged(authState, (user) => {
 
 // Logout functionality
 document.getElementById("logout-link")?.addEventListener("click", async () => {
-  const auth = getAuth();
   try {
     await signOut(auth);
     alert("Logged out successfully!");
