@@ -1,110 +1,66 @@
-// Firebase Configuration
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-import {
-    createUserWithEmailAndPassword,
-    getAuth,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    signOut,
-    updateProfile
-} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
-import { doc, getFirestore, setDoc } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
-
-// Firebase Configuration Object
+// Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDfImdWgYRjEiItPckbWzJsYY7Yi6fud14",
-    authDomain: "neepco-p.firebaseapp.com",
-    projectId: "neepco-p",
-    storageBucket: "neepco-p.firebasestorage.app",
-    messagingSenderId: "728646816054",
-    appId: "1:728646816054:web:7ebdad137c19ee9d9b6397"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
 };
 
-// Initialize Firebase App
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
 
-// Sign Up Form Handling
-document.getElementById("signup-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const username = document.getElementById("username").value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const confirmPassword = document.getElementById("confirm_password").value;
-
-  // Check if passwords match
-  if (password !== confirmPassword) {
-    alert("Passwords do not match.");
-    return;
-  }
-
-  try {
-    // Create New User with Email and Password
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
-    // Update Display Name with the provided username
-    await updateProfile(userCredential.user, { displayName: username });
-
-    // Save user data to Firestore
-    await setDoc(doc(db, "users", userCredential.user.uid), {
-      username: username,
-      email: email,
-      createdAt: new Date()
+// Register New User
+function registerUser(email, password, name) {
+  auth.createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      // Store additional user info in Firestore
+      db.collection("users").doc(user.uid).set({
+        name: name,
+        email: email,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+      alert("Registration successful!");
+      window.location.href = "dashboard.html";
+    })
+    .catch((error) => {
+      alert(error.message);
     });
+}
 
-    alert("Account created successfully!");
-    window.location.href = "dashboard.html"; // Redirect after successful signup
-  } catch (error) {
-    console.error("Signup Error:", error.message);
-    alert("Signup failed: " + error.message);
-  }
-});
+// Log In Existing User
+function loginUser(email, password) {
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      alert("Login successful!");
+      window.location.href = "dashboard.html";
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+}
 
-// Login Form Handling
-document.getElementById("login-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
+// Log Out User
+function logoutUser() {
+  auth.signOut()
+    .then(() => {
+      alert("Logged out successfully!");
+      window.location.href = "index.html";
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+} 
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  try {
-    // Sign in with Email and Password
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    alert("Login successful!");
-
-    // Redirect to Dashboard after successful login
-    window.location.href = "dashboard.html";
-  } catch (error) {
-    console.error("Login Error:", error.message);
-    alert("Login failed: " + error.message);
-  }
-});
-
-// Firebase Authentication State and Logout Handling
-onAuthStateChanged(auth, (user) => {
+// Listen for Authentication State Changes
+auth.onAuthStateChanged((user) => {
   if (user) {
-    // If the user is logged in, hide login and signup links, show logout link
-    document.getElementById("login-link").style.display = "none";
-    document.getElementById("signup-link").style.display = "none";
-    document.getElementById("logout-link").style.display = "inline";
+    console.log("User logged in: ", user.email);
   } else {
-    // If no user is logged in, show login and signup links, hide logout link
-    document.getElementById("login-link").style.display = "inline";
-    document.getElementById("signup-link").style.display = "inline";
-    document.getElementById("logout-link").style.display = "none";
-  }
-});
-
-// Logout functionality
-document.getElementById("logout-link")?.addEventListener("click", async () => {
-  try {
-    await signOut(auth);
-    alert("Logged out successfully!");
-    window.location.href = "index.html"; // Redirect to home after logging out
-  } catch (error) {
-    console.error("Logout Error:", error.message);
-    alert("Logout failed: " + error.message);
+    console.log("User logged out");
   }
 });
