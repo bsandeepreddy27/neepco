@@ -1,8 +1,0 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyDfImdWgYRjEiItPckbWzJsYY7Yi6fud14",
-    authDomain: "neepco-p.firebaseapp.com",
-    projectId: "neepco-p",
-    storageBucket: "neepco-p.firebasestorage.app",
-    messagingSenderId: "728646816054",
-    appId: "1:728646816054:web:7ebdad137c19ee9d9b6397"
-};
